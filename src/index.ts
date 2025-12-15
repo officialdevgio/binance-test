@@ -16,7 +16,6 @@ binanceWs.on("open", () => {
 });
 binanceWs.on("message", (message: string) => {
   const data = JSON.parse(message);
-  console.log(data);
 });
 binanceWs.on("error", (error: Error) => {
   console.error(error);
@@ -28,6 +27,7 @@ app.get("/api/klines", async (req: Request, res: Response): Promise<void> => {
     `https://fapi.binance.com/fapi/v1/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`
   );
   const data = await respone.json();
+  console.log(data);
   res.json(data);
 });
 
