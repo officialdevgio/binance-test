@@ -20,6 +20,10 @@ binanceWs.on("message", (message: string) => {
 binanceWs.on("error", (error: Error) => {
   console.error(error);
 });
+app.get("/", (req: Request, res: Response): void => {
+  res.json({ message: "Hello World" });
+  console.log("Hello World");
+});
 app.get("/api/klines", async (req: Request, res: Response): Promise<void> => {
   // Get the klines from binance fapi v1
   const { symbol, interval, limit } = req.query;
